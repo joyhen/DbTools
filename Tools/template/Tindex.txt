@@ -1,0 +1,34 @@
+﻿<!--<div class="warning_box">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+</div>
+<div class="valid_box">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+</div>
+<div class="error_box">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.
+</div>-->
+
+<script id="tmptb" type="x-tmpl-mustache">
+    {{#data}}
+    <li><a href="javascript:void(0);">{{name}}</a></li>
+    {{/data}}
+</script>
+<script id="template" type="x-tmpl-mustache">
+    {{#data}}
+    <tr class="odd">
+        <td style="padding:0 10px;">{{name}}</td>
+        <td style="padding:0 10px;">{{index}}</td>
+        <td style="padding:0 10px;">{{key}}</td>
+        <td>{{type}}</td>
+        <!--<td>{{length}}</td>-->
+        <td style="padding:0 10px;">{{null}}</td>
+        <td>{{defval}}</td>
+        <td class="detail" title="{{des}}">&raquo;</td><!--&gt;-->
+        <td class="action">
+            <a href="javascript:void(0);" ccvalue="{{name}}" class="view">Mark</a>
+            <a href="javascript:void(0);" ccvalue="{{name}}" class="edit">Scene</a>
+            <a href="javascript:void(0);" ccvalue="{{name}}" class="delete">Delete</a>
+        </td>
+    </tr>
+    {{/data}}
+</script>

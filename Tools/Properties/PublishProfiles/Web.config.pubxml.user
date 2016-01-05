@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\publish\tool</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="addfield.html">
+      <publishTime>12/31/2015 11:02:39</publishTime>
+    </File>
+    <File Include="ajax/requestaction.ashx">
+      <publishTime>12/25/2015 11:37:43</publishTime>
+    </File>
+    <File Include="alltable.html">
+      <publishTime>12/30/2015 18:00:20</publishTime>
+    </File>
+    <File Include="bak.html">
+      <publishTime>12/29/2015 14:30:21</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.FriendlyUrls.dll">
+      <publishTime>12/25/2015 10:39:25</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>12/25/2015 10:39:25</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>12/25/2015 10:39:44</publishTime>
+    </File>
+    <File Include="bin/protobuf-net.dll">
+      <publishTime>12/29/2015 15:38:40</publishTime>
+    </File>
+    <File Include="bin/Tools.dll">
+      <publishTime>01/05/2016 17:11:59</publishTime>
+    </File>
+    <File Include="doc/material.txt">
+      <publishTime>12/29/2015 16:08:00</publishTime>
+    </File>
+    <File Include="editfield.html">
+      <publishTime>12/30/2015 16:49:47</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>12/25/2015 11:14:49</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>12/25/2015 10:41:34</publishTime>
+    </File>
+    <File Include="help.html">
+      <publishTime>01/04/2016 13:59:30</publishTime>
+    </File>
+    <File Include="images/error.png">
+      <publishTime>12/25/2015 11:12:24</publishTime>
+    </File>
+    <File Include="images/key.png">
+      <publishTime>12/25/2015 11:12:24</publishTime>
+    </File>
+    <File Include="images/logo.ico">
+      <publishTime>12/25/2015 11:12:24</publishTime>
+    </File>
+    <File Include="images/notice.png">
+      <publishTime>12/25/2015 11:12:25</publishTime>
+    </File>
+    <File Include="images/Thumbs.db">
+      <publishTime>12/25/2015 11:12:25</publishTime>
+    </File>
+    <File Include="images/valid.png">
+      <publishTime>12/25/2015 11:12:25</publishTime>
+    </File>
+    <File Include="images/warning.png">
+      <publishTime>12/25/2015 11:12:25</publishTime>
+    </File>
+    <File Include="index.aspx">
+      <publishTime>01/05/2016 14:53:09</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>12/29/2015 16:41:57</publishTime>
+    </File>
+    <File Include="js/common.js">
+      <publishTime>12/29/2015 11:04:56</publishTime>
+    </File>
+    <File Include="js/jquery.serializeJSON.js">
+      <publishTime>12/25/2015 10:43:08</publishTime>
+    </File>
+    <File Include="js/jquery1.7.2.js">
+      <publishTime>12/25/2015 10:43:46</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/demo.html">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/demo.txt">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer API 帮助文档.html">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/extend/layer.ext.js">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/layer.js">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/default/icon-ext.png">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/default/icon.png">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/default/loading-0.gif">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/default/loading-1.gif">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/default/loading-2.gif">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/espresso/close.png">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/espresso/icon.png">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/espresso/style.css">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/layer.css">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/layer.ext.css">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/moon/default.png">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/moon/style.css">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/seaning/close.png">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/seaning/default.png">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/layer-v2.0/layer/skin/seaning/style.css">
+      <publishTime>12/25/2015 10:43:24</publishTime>
+    </File>
+    <File Include="js/mustache.min.js">
+      <publishTime>12/25/2015 10:43:08</publishTime>
+    </File>
+    <File Include="js/parseUri.1.2.2.js">
+      <publishTime>12/25/2015 10:43:08</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/jquery.poshytip.min.js">
+      <publishTime>12/28/2015 14:06:24</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/tip-twitter/tip-twitter.css">
+      <publishTime>12/28/2015 15:00:29</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/tip-twitter/tip-twitter_arrows.gif">
+      <publishTime>12/28/2015 14:52:38</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/tip-violet/tip-violet.css">
+      <publishTime>12/28/2015 14:11:28</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/tip-violet/tip-violet.png">
+      <publishTime>12/28/2015 14:11:28</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/tip-violet/tip-violet_arrows.png">
+      <publishTime>12/28/2015 14:11:28</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/tip-yellowsimple/tip-yellowsimple.css">
+      <publishTime>12/30/2015 18:10:41</publishTime>
+    </File>
+    <File Include="js/poshytip-1.2/tip-yellowsimple/tip-yellowsimple_arrows.gif">
+      <publishTime>12/30/2015 18:10:41</publishTime>
+    </File>
+    <File Include="mark.html">
+      <publishTime>01/05/2016 13:49:09</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>12/29/2015 15:38:45</publishTime>
+    </File>
+    <File Include="scene.html">
+      <publishTime>01/05/2016 14:54:24</publishTime>
+    </File>
+    <File Include="style/css/hack.css">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/css/ie6.css">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/css/ie7.css">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/css/jNice.css">
+      <publishTime>12/29/2015 10:45:35</publishTime>
+    </File>
+    <File Include="style/css/layout.css">
+      <publishTime>12/31/2015 11:30:37</publishTime>
+    </File>
+    <File Include="style/css/msg.css">
+      <publishTime>12/25/2015 11:31:51</publishTime>
+    </File>
+    <File Include="style/css/reset.css">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/css/selecttb.css">
+      <publishTime>12/30/2015 17:48:24</publishTime>
+    </File>
+    <File Include="style/css/transdmin.css">
+      <publishTime>12/31/2015 10:58:47</publishTime>
+    </File>
+    <File Include="style/img/btn_left.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/btn_right.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/button-submit.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/content.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/input-shaddow-hover.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/input-shaddow.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/left-menu-bg.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/select_left.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/select_right.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/top-menu-bg.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/top-menu-item-bg.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/img/transdmin-light.gif">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/js/jNice.js">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/js/jquery.js">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/login/base.css">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="style/login/style.css">
+      <publishTime>12/25/2015 11:12:31</publishTime>
+    </File>
+    <File Include="template/Tindex.txt">
+      <publishTime>01/04/2016 17:00:52</publishTime>
+    </File>
+    <File Include="test.aspx">
+      <publishTime>12/29/2015 15:04:04</publishTime>
+    </File>
+    <File Include="tinytable.html">
+      <publishTime>12/29/2015 16:16:02</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>01/05/2016 17:12:01</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

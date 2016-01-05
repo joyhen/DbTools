@@ -1,0 +1,54 @@
+﻿body, h1, h2, h3, h4, h5, h6, dl, dt, dd, ul, ol, li, th, td, p, blockquote, pre, form, egend, input, button, textarea, hr {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+ol {
+    padding-left: 20px;
+}
+
+#myform {
+    min-height: 145px;
+}
+
+    #myform ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+        #myform ul li {
+            width: 15.55%;
+            float: left;
+            cursor: pointer;
+            text-align: center;
+            height: 20px;
+            line-height: 20px;
+            margin: 5px 5px;
+            /*padding: 0 3px;*/
+            color: #999;
+            background-color: #fff;
+            border: 1px solid #aaaaaa;
+            border-radius: 3px;
+            text-shadow: 0 1px 1px rgba(255,255,255,.75);
+            font-size: 12px;
+            font-family: Arial;
+        }
+
+            #myform ul li.liselectlang {
+                color: #000;
+                border: 1px solid #0094ff;
+                background: #e5f5ff 140px center no-repeat;
+            }
+
+.btnlistcontaint {
+    text-align: center;
+}

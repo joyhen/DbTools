@@ -1,0 +1,27 @@
+﻿.warning_box {
+    width: 540px;
+    clear: both;
+    background: url(../../images/warning.png) no-repeat left #FCFAE9;
+    border: 1px #E9E6C7 solid;
+    background-position: 15px 10px;
+    padding: 20px 20px 15px 60px;
+    margin: 0 0 10px 0;
+}
+.valid_box {
+    width: 540px;
+    clear: both;
+    background: url(../../images/valid.png) no-repeat left #EDFCE9;
+    border: 1px #CCEAC4 solid;
+    background-position: 15px 10px;
+    padding: 20px 20px 15px 60px;
+    margin: 0 0 10px 0;
+}
+.error_box {
+    width: 540px;
+    clear: both;
+    background: url(../../images/error.png) no-repeat left #FCE9E9;
+    border: 1px #EAC7C7 solid;
+    background-position: 15px 10px;
+    padding: 20px 20px 15px 60px;
+    margin: 0 0 10px 0;
+}

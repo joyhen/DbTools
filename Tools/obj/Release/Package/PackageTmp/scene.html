@@ -1,0 +1,73 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>编辑字段</title>
+
+    <!-- CSS -->
+    <link href="style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js/poshytip-1.2/tip-yellowsimple/tip-yellowsimple.css" rel="stylesheet" />
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie6.css" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie7.css" /><![endif]-->
+    <!-- JavaScripts-->
+    <script type="text/javascript" src="js/jquery1.7.2.js"></script>
+    <script type="text/javascript" src="style/js/jNice.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" style="width:auto;">
+        <div id="main" style="padding:0px;width:400px; float:none;">
+            <form action="" class="jNice" id="myform">
+                <fieldset style="border:none; margin-bottom:0;">
+                    <p><label>名称:<input type="text" name="name" class="fieldname" style="border:none;" readonly="readonly" /></label></p>
+                    <p><label>业务场景:</label><textarea name="biz" id="biz" rows="1" cols="1"></textarea></p>
+                    <input type="hidden" name="table" id="table" />
+                    <input type="hidden" name="desc" id="desc" />
+                    <input type="button" value="Update" />
+                </fieldset>
+            </form>
+        </div>
+        <!-- // #containerHolder -->
+    </div>
+    <!-- // #wrapper -->
+
+    <script src="js/jquery.serializeJSON.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var myurl = parent.parseUri(location.href);
+            var _table = myurl.queryKey.tb;
+            var _field = myurl.queryKey.fd;
+
+            var index = parent.layer.getFrameIndex(window.name);
+
+            $('.fieldname').val(_field);
+            $("#table").val(_table); //表名存入隐藏对象
+
+            $('input[type="button"]').click(function () {
+                var checkitem = $('#biz');
+                if ($.trim(checkitem.val()) == '') {
+                    parent.layer.msg('不能为空');
+                    checkitem.focus();
+                    return;
+                }
+
+                var paramdata = {
+                    action: 'scence',
+                    arg: $('#myform').serializeJSON()
+                };
+                parent.doAjaxPost(paramdata, function (result) {
+                    if (result.success) {
+                        parent.SuperSite.MsgSuccess('修改成功');
+                        parent.layer.close(index);
+                    } else {
+                        parent.SuperSite.MsgFailed(result.msg);
+                    }
+                });
+            });
+
+            //...
+
+        });
+    </script>
+</body>
+</html>
