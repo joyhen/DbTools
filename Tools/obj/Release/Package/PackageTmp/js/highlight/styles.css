@@ -1,0 +1,55 @@
+@import url(//fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+@import url(//fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+/*body {
+  color: #F0F0F0;
+  background: #600;
+  margin: 0 auto;
+  width: 52em;
+  font-family: PT Sans, DejaVu Sans, Arial, sans;
+}*/
+
+pre {
+    margin:0;
+    padding-top:0;
+}
+
+a {
+  color: white;
+}
+
+h2 {
+  margin: 2em 0 1em 0;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+ul li {
+  list-style-type: square;
+}
+
+ul.ui {
+  padding: 0 0 0 1em;
+}
+
+ul.ui li {
+  margin: 0.25em 0; padding: 0;
+}
+
+pre code {
+  font: normal 12pt Ubuntu Mono;
+}
+
+pre {
+  margin: 0;
+}
+
+pre code {
+  display: block;
+  overflow-y: auto; overflow-x: hidden;
+}
+
+p {
+  display: inline-block;
+  width: 11em; margin: 0.5em 0 0 0;
+}

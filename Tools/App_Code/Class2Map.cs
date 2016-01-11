@@ -119,8 +119,7 @@ namespace Tools.App_Code
         /// <param name="s">对象1实例</param>
         /// <param name="t">对象2实例</param>
         /// <returns>合并后的动态对象</returns>
-        public static List<IDictionary<string, Object>> MergerListObject<TSource, TTarget>(List<TSource> s, TTarget t,
-            Predicate<String> predicate = null)
+        public static List<IDictionary<string, Object>> MergerListObject<TSource, TTarget>(List<TSource> s, TTarget t)
         {
             var targetPts = GetObjectProperties<TSource>();
 
@@ -147,12 +146,7 @@ namespace Tools.App_Code
                     var attributes = p.GetCustomAttributes(typeof(IngoreProperty), true);
                     if (attributes.FirstOrDefault() != null) continue;
 
-                    if (predicate == null)
-                        dynamicResult.Add(p.Name, p.GetValue(t, null));
-                    else
-                    {
-                        dynamicResult.Add(p.Name, predicate(p.Name) ? p.GetValue(t, null) : "");
-                    }
+                    dynamicResult.Add(p.Name, p.GetValue(t, null));
                 }
 
                 result.Add(dynamicResult);

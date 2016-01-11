@@ -5,6 +5,7 @@ using System.Reflection;
 
 namespace Tools.ajax
 {
+    using System.Collections.Generic;
     using Tools.App_Code;
 
     public partial class requestaction
@@ -40,6 +41,7 @@ namespace Tools.ajax
             var ajaxPraramData = ActionParama.GetArg<T>();
             return ajaxPraramData;
         }
+
         /// <summary>
         /// 获取数据，包含缓存（缓存有就取，没有就执行方法获取）
         /// </summary>
@@ -59,6 +61,25 @@ namespace Tools.ajax
             }
 
             return cachedata;
+        }
+
+        /// <summary>
+        /// 校验数据集
+        /// </summary>
+        private bool CheckDS(DataSet ds)
+        {
+            return ds != null && ds.Tables.Count > 0;
+        }
+        /// <summary>
+        /// 校验数据集中的表
+        /// </summary>
+        private bool CheckTB(DataSet ds, int tbindex)
+        {
+            if (CheckDS(ds))
+            {
+                return ds.Tables[tbindex].Rows.Count > 0;
+            }
+            return false;
         }
 
         /// <summary>
@@ -122,24 +143,6 @@ namespace Tools.ajax
             return id;
         }
 
-        /// <summary>
-        /// 校验数据集
-        /// </summary>
-        private bool CheckDS(DataSet ds)
-        {
-            return ds != null && ds.Tables.Count > 0;
-        }
-        /// <summary>
-        /// 校验数据集中的表
-        /// </summary>
-        private bool CheckTB(DataSet ds, int tbindex)
-        {
-            if (CheckDS(ds))
-            {
-                return ds.Tables[tbindex].Rows.Count > 0;
-            }
-            return false;
-        }
         /// <summary>
         /// 字符串有效性检查
         /// </summary>

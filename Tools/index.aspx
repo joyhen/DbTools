@@ -14,7 +14,7 @@
     <!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie6.css" /><![endif]-->
     <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie7.css" /><![endif]-->
     <script type="text/javascript" src="js/jquery1.7.2.js"></script>
-    <script type="text/javascript" src="style/js/jNice.js"></script>    
+    <script type="text/javascript" src="style/js/jNice.js"></script>
 </head>
 
 <body>
@@ -22,11 +22,11 @@
         <h1 style="width:400px;">数据字典开发工具 preview 1.0</h1>
         <ul id="mainNav" style="margin-bottom:15px;">
         	<li><a href="#" class="active">数据库</a></li>
-        	<li><a href="#">模板</a></li>
-        	<li><a href="#">DTO</a></li>
-            <li><a href="#">组件库</a></li>
+        	<li><a href="#" class="template">工具</a></li>
+            <li><a href="#" class="codelib">代码库</a></li>
+            <li><a href="#" class="formdesign">表单设计</a></li>
         	<li><a href="#" class="setting">设置</a></li>
-        	<li><a href="#" class="help">帮助</a></li>            
+        	<li><a href="#" class="help">帮助</a></li>
         	<li class="logout"><a href="#">退出</a></li>
         </ul>
         <!-- // #end mainNav -->
@@ -71,7 +71,7 @@
                         </table>
                     </form>
                 </div>
-                <!-- // #main -->                
+                <!-- // #main -->
                 <div class="clear"></div>
             </div>
             <!-- // #container -->
@@ -88,6 +88,7 @@
 
     <!-- //#template-->
     <script type="text/javascript">
+        var CurrentSelectTD = ''; // 当前选中的行字段名
         var globalRequestUrl = 'ajax/requestaction.ashx';
         $.get("template/Tindex.txt", function (result) {
             $("#wrapper").append(result);
@@ -112,14 +113,14 @@
 
         //获取数据库表
         function loadtable() {
-            var l = $('#sidebar').offset().left + 60;
-            var ii = layer.load(0, { shade: [0.2, '#fff'], offset: ['215px', l + 'px'] });
+            var lft = $('#sidebar').offset().left + 60;
+            var loading = layer.load(0, { shade: [0.2, '#fff'], offset: ['215px', lft + 'px'] });
             renderTable(
                 { action: "getalltable" },
                 $('.sideNav'),
                 $('#tmptb').html(),
                 function () {
-                    layer.close(ii);
+                    layer.close(loading);
                     if ($('.sideNav li').length == 20) {
                         $('.sideNav').append('<li><a class="more" href="javascript:void(0);">更多&raquo;&raquo;</a></li>');
                     }
@@ -159,20 +160,33 @@
                         break;
                     case 'codetip':
                         if (checkselected()) {
-                            SuperSite.MsgOK('生成代码-弹出操作');
-                        }
+                            OpeniframeLayer('生成代码', 'code.aspx?tb=' + tb + '&fd=' + CurrentSelectTD, ['900px', '500px'], true, true, false);
+                        };
                         break;
                     case 'libtip':
-                        if (checkselected()) {
-                            SuperSite.MsgOK('导入代码库-弹出操作');
-                        }
+                        if (checkselected()) { go2codelib(tb); };
                         break;
                     default:
                         SuperSite.MsgError('操作无效');
                         break;
-                }
+                };
             });
         };
+
+        //导入代码库
+        function go2codelib(table) {
+            var paramdata = {
+                action: "gencodelib",
+                arg: { tb: table, fd: CurrentSelectTD }
+            };
+            doAjaxPost(paramdata, function (result) {
+                if (result.success) {
+                    SuperSite.MsgSuccess('导入成功');
+                } else {
+                    SuperSite.MsgError(result.msg);
+                }
+            });
+        }
 
         //显示字段描述
         function showdescript() {
@@ -183,6 +197,7 @@
                 alignX: 'left',
                 alignY: 'center'
             });
+            $('.table tr:odd').addClass('odd');
         };
 
         //加载表信息
@@ -200,12 +215,13 @@
         function checkselected() {
             var count = 0;
             var selecttr = $('.table tr:gt(0)');
-            selecttr.map(function (idx, dom) {
+            CurrentSelectTD = selecttr.map(function (idx, dom) {
                 if ($(dom).find('td[class*="selected"]').length > 0) {
                     count++;
+                    return $(dom).find('td:first').text();
                 };
-            });
-
+            }).get().join(',');
+            
             if (count == 0) {
                 SuperSite.MsgWarning('您尚未选中任何字段');
                 return false;
@@ -262,6 +278,15 @@
                     if ($(this).hasClass('help')) {
                         OpeniframeLayer('快捷窗口', 'help.html', ['600px', '300px'], true);
                     }
+                    if ($(this).hasClass('codelib')) {
+                        OpeniframeLayer('代码库', 'codelib.html', ['750px', '400px'], true, true, false);
+                    }
+                    if ($(this).hasClass('template')) {
+                        OpeniframeLayer('json代码处理', 'json.html', ['530px', '530px'], true);
+                    }
+                    if ($(this).hasClass('formdesign')) {
+                        OpeniframeLayer('表单设计器', 'formdesign.aspx', ['1000px', '600px'], true, true, false);
+                    }                    
                 }
             });
 
@@ -285,10 +310,6 @@
                 $(this).find('td').toggleClass('selected');
             });
 
-            //$('.table').delegate('.view', 'click', function (e) {
-            //    e.stopPropagation();
-            //    SuperSite.MsgOK('详情--后期完善');
-            //});
             //编辑字段说明、编辑字段业务场景
             $('.table').delegate('.view, .edit', 'click', function (e) {
                 e.stopPropagation();
@@ -304,6 +325,7 @@
                 }
 
             });
+
             //删除字段
             $('.table').delegate('.delete', 'click', function (e) {
                 e.stopPropagation();
@@ -326,6 +348,8 @@
                     });
                 });
             });
+
+            //...
 
         });
     </script>

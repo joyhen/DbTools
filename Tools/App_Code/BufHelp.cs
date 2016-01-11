@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 using System.Linq;
+using System.Threading;
 using System.Collections.Generic;
 
 namespace Tools.App_Code
@@ -11,6 +12,11 @@ namespace Tools.App_Code
         /// 对象锁
         /// </summary>
         private readonly static Object Locker = new Object();
+        ///// <summary>
+        ///// 读写分离锁
+        ///// </summary>
+        ///// <remarks>http://www.360doc.com/content/13/1216/09/10504424_337515446.shtml</remarks>
+        //private static ReaderWriterLockSlim rwl = new ReaderWriterLockSlim();
 
         /// <summary>
         /// 序列化-表字段业务信息

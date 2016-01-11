@@ -29,6 +29,15 @@ namespace Tools.App_Code
         /// 表业务信息文件
         /// </summary>
         public const string TableBusinessFile = "db.bin";
+        /// <summary>
+        /// 代码库文件
+        /// </summary>
+        public const string CodeFile = "code.bin";
+
+        /// <summary>
+        /// json 2 class 代码缓存键
+        /// </summary>
+        public const string GenJsonClass = "Jon_Json2Class";
 
     }
 }

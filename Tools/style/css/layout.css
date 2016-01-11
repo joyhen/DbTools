@@ -42,6 +42,7 @@ h1 span { display: none; }
     text-align:center;
     color:#f14706;
 }
+.amore{color:#f14706; margin-left:10px; cursor:pointer;}
 .connect{margin-bottom:15px; display:none;}
 .cctext-long {
 	border: 1px solid #ddd;

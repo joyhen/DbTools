@@ -73,9 +73,85 @@
   <ItemGroup>
     <Content Include="addfield.html" />
     <Content Include="alltable.html" />
+    <Content Include="code.aspx" />
+    <Content Include="codelib.html" />
     <Content Include="doc\material.txt" />
     <Content Include="favicon.ico" />
     <Content Include="bak.html" />
+    <Content Include="formdesign.aspx" />
+    <Content Include="json.html" />
+    <Content Include="Json2Class.aspx" />
+    <Content Include="js\highlight\demo.txt" />
+    <Content Include="js\highlight\highlight.pack.js" />
+    <Content Include="js\highlight\styles.css" />
+    <Content Include="js\highlight\styles\agate.css" />
+    <Content Include="js\highlight\styles\androidstudio.css" />
+    <Content Include="js\highlight\styles\arta.css" />
+    <Content Include="js\highlight\styles\ascetic.css" />
+    <Content Include="js\highlight\styles\atelier-cave.dark.css" />
+    <Content Include="js\highlight\styles\atelier-cave.light.css" />
+    <Content Include="js\highlight\styles\atelier-dune.dark.css" />
+    <Content Include="js\highlight\styles\atelier-dune.light.css" />
+    <Content Include="js\highlight\styles\atelier-estuary.dark.css" />
+    <Content Include="js\highlight\styles\atelier-estuary.light.css" />
+    <Content Include="js\highlight\styles\atelier-forest.dark.css" />
+    <Content Include="js\highlight\styles\atelier-forest.light.css" />
+    <Content Include="js\highlight\styles\atelier-heath.dark.css" />
+    <Content Include="js\highlight\styles\atelier-heath.light.css" />
+    <Content Include="js\highlight\styles\atelier-lakeside.dark.css" />
+    <Content Include="js\highlight\styles\atelier-lakeside.light.css" />
+    <Content Include="js\highlight\styles\atelier-plateau.dark.css" />
+    <Content Include="js\highlight\styles\atelier-plateau.light.css" />
+    <Content Include="js\highlight\styles\atelier-savanna.dark.css" />
+    <Content Include="js\highlight\styles\atelier-savanna.light.css" />
+    <Content Include="js\highlight\styles\atelier-seaside.dark.css" />
+    <Content Include="js\highlight\styles\atelier-seaside.light.css" />
+    <Content Include="js\highlight\styles\atelier-sulphurpool.dark.css" />
+    <Content Include="js\highlight\styles\atelier-sulphurpool.light.css" />
+    <Content Include="js\highlight\styles\brown_paper.css" />
+    <Content Include="js\highlight\styles\brown_papersq.png" />
+    <Content Include="js\highlight\styles\codepen-embed.css" />
+    <Content Include="js\highlight\styles\color-brewer.css" />
+    <Content Include="js\highlight\styles\dark.css" />
+    <Content Include="js\highlight\styles\darkula.css" />
+    <Content Include="js\highlight\styles\default.css" />
+    <Content Include="js\highlight\styles\docco.css" />
+    <Content Include="js\highlight\styles\far.css" />
+    <Content Include="js\highlight\styles\foundation.css" />
+    <Content Include="js\highlight\styles\github-gist.css" />
+    <Content Include="js\highlight\styles\github.css" />
+    <Content Include="js\highlight\styles\googlecode.css" />
+    <Content Include="js\highlight\styles\grayscale.css" />
+    <Content Include="js\highlight\styles\hopscotch.css" />
+    <Content Include="js\highlight\styles\hybrid.css" />
+    <Content Include="js\highlight\styles\idea.css" />
+    <Content Include="js\highlight\styles\ir_black.css" />
+    <Content Include="js\highlight\styles\kimbie.dark.css" />
+    <Content Include="js\highlight\styles\kimbie.light.css" />
+    <Content Include="js\highlight\styles\magula.css" />
+    <Content Include="js\highlight\styles\mono-blue.css" />
+    <Content Include="js\highlight\styles\monokai.css" />
+    <Content Include="js\highlight\styles\monokai_sublime.css" />
+    <Content Include="js\highlight\styles\obsidian.css" />
+    <Content Include="js\highlight\styles\paraiso.dark.css" />
+    <Content Include="js\highlight\styles\paraiso.light.css" />
+    <Content Include="js\highlight\styles\pojoaque.css" />
+    <Content Include="js\highlight\styles\pojoaque.jpg" />
+    <Content Include="js\highlight\styles\railscasts.css" />
+    <Content Include="js\highlight\styles\rainbow.css" />
+    <Content Include="js\highlight\styles\school_book.css" />
+    <Content Include="js\highlight\styles\school_book.png" />
+    <Content Include="js\highlight\styles\solarized_dark.css" />
+    <Content Include="js\highlight\styles\solarized_light.css" />
+    <Content Include="js\highlight\styles\sunburst.css" />
+    <Content Include="js\highlight\styles\tomorrow-night-blue.css" />
+    <Content Include="js\highlight\styles\tomorrow-night-bright.css" />
+    <Content Include="js\highlight\styles\tomorrow-night-eighties.css" />
+    <Content Include="js\highlight\styles\tomorrow-night.css" />
+    <Content Include="js\highlight\styles\tomorrow.css" />
+    <Content Include="js\highlight\styles\vs.css" />
+    <Content Include="js\highlight\styles\xcode.css" />
+    <Content Include="js\highlight\styles\zenburn.css" />
     <Content Include="mark.html" />
     <Content Include="Global.asax" />
     <Content Include="help.html" />
@@ -119,6 +195,7 @@
     <Content Include="js\poshytip-1.2\tip-violet\tip-violet_arrows.png" />
     <Content Include="js\poshytip-1.2\tip-yellowsimple\tip-yellowsimple.css" />
     <Content Include="js\poshytip-1.2\tip-yellowsimple\tip-yellowsimple_arrows.gif" />
+    <Content Include="moretools.aspx" />
     <Content Include="scene.html" />
     <Content Include="style\css\selecttb.css" />
     <Content Include="template\Tindex.txt" />
@@ -156,6 +233,9 @@
     <Compile Include="ajax\requestaction.ashx.cs">
       <DependentUpon>requestaction.ashx</DependentUpon>
     </Compile>
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="App_Code\BufHelp.cs" />
     <Compile Include="App_Code\CacheUtil.cs" />
     <Compile Include="App_Code\Class2Map.cs" />
@@ -171,6 +251,20 @@
     <Compile Include="App_Code\ReflectionMapr.cs" />
     <Compile Include="App_Code\sql.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="code.aspx.cs">
+      <DependentUpon>code.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="code.aspx.designer.cs">
+      <DependentUpon>code.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="formdesign.aspx.cs">
+      <DependentUpon>formdesign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="formdesign.aspx.designer.cs">
+      <DependentUpon>formdesign.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +274,20 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Json2Class.aspx.cs">
+      <DependentUpon>Json2Class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Json2Class.aspx.designer.cs">
+      <DependentUpon>Json2Class.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="moretools.aspx.cs">
+      <DependentUpon>moretools.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="moretools.aspx.designer.cs">
+      <DependentUpon>moretools.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="test.aspx.cs">
@@ -194,6 +302,10 @@
     <Content Include="packages.config" />
     <Content Include="images\Thumbs.db" />
     <Content Include="ajax\requestaction.ashx" />
+    <Content Include="js\highlight\CHANGES.md" />
+    <Content Include="js\highlight\LICENSE" />
+    <Content Include="js\highlight\README.md" />
+    <Content Include="js\highlight\README.ru.md" />
     <None Include="Properties\PublishProfiles\Web.config.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -202,7 +314,15 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\GenJsonClass\GenJsonClass.csproj">
+      <Project>{d9a7f1e3-707b-4988-9429-9f988298fba4}</Project>
+      <Name>GenJsonClass</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="template\default\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

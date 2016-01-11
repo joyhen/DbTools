@@ -88,6 +88,29 @@ namespace Tools.App_Code
     }
 
     /// <summary>
+    /// 键、值、备注 对象
+    /// </summary>
+    [ProtoContract]
+    public class KeyValueDesc
+    {
+        /// <summary>
+        /// 键
+        /// </summary>
+        [ProtoMember(1)]
+        public string key { get; set; }
+        /// <summary>
+        /// 值
+        /// </summary>
+        [ProtoMember(2)]
+        public string value { get; set; }
+        /// <summary>
+        /// 说明、描述
+        /// </summary>
+        [ProtoMember(3)]
+        public string desc { get; set; }
+    }
+
+    /// <summary>
     /// ajax post 参数对象
     /// </summary>
     public class AjaxParama : IAjaxParama

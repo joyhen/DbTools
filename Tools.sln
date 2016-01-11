@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tools", "Tools\Tools.csproj", "{55B61F62-C6B8-43E9-AFDE-DB4D68F3B096}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenJsonClass", "GenJsonClass\GenJsonClass.csproj", "{D9A7F1E3-707B-4988-9429-9F988298FBA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{55B61F62-C6B8-43E9-AFDE-DB4D68F3B096}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55B61F62-C6B8-43E9-AFDE-DB4D68F3B096}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55B61F62-C6B8-43E9-AFDE-DB4D68F3B096}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9A7F1E3-707B-4988-9429-9F988298FBA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9A7F1E3-707B-4988-9429-9F988298FBA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9A7F1E3-707B-4988-9429-9F988298FBA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9A7F1E3-707B-4988-9429-9F988298FBA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

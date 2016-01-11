@@ -91,8 +91,22 @@ namespace Tools.ajax
                 case "scence":
                     Sence();
                     break;
+                case "gencodelib":
+                    GenCodeLibrary();
+                    break;
+                case "getcodelib":
+                    GetCodeLibrary();
+                    break;
+                case "deletecodelib":
+                    DelCodeLibrary();
+                    break;
 
-
+                case "makejson":
+                    MakeJson();
+                    break;
+                case "makeclass":
+                    MakeClass();
+                    break;  
 
                 default:
                     Outmsg("请求无效");
@@ -131,7 +145,7 @@ namespace Tools.ajax
                 var ds = DBHelp.ExecuteDataSet(sql.GetAllTable);
                 if (CheckDS(ds))
                 {
-                    var result = ds.Tables[0].Map<DataBaseTB>()
+                    var result = ds.Tables[0].MapTo<DataBaseTB>()
                         .Where(t => t.type.Trim() == "U" && !(t.name.Trim().StartsWith("conflict")));
                     return result.ToList();
                 }
@@ -240,7 +254,7 @@ namespace Tools.ajax
                 return;
             }
 
-            var query = GetTableDetail(argdata.table);                                          //表信息
+            var query = GetTableDetail(argdata.table);                                //表信息
             if (query == null || query.Count == 0)
             {
                 Outmsg("数据表无效");
@@ -289,7 +303,7 @@ namespace Tools.ajax
                 return;
             }
 
-            var query = GetTableDetail(argdata.table);                                          //表信息
+            var query = GetTableDetail(argdata.table);                                //表信息
             if (query == null || query.Count == 0)
             {
                 Outmsg("数据表无效");
@@ -337,8 +351,6 @@ namespace Tools.ajax
         }
         #endregion
 
-        #region 私有方法
-
         /// <summary>
         /// 获取表信息
         /// </summary>
@@ -349,7 +361,7 @@ namespace Tools.ajax
                 var ds = DBHelp.ExecuteDataSet(string.Format(sql.GetTableInfo, tbname));
                 if (CheckDS(ds))
                 {
-                    var result = ds.Tables[0].Map<TableInfo>();
+                    var result = ds.Tables[0].MapTo<TableInfo>();
                     return result.ToList();
                 }
                 return null;
@@ -357,7 +369,6 @@ namespace Tools.ajax
 
             return query ?? new List<TableInfo>();
         }
-        #endregion
 
         /// <summary>
         /// 当前操作方法名的客户端方法签名

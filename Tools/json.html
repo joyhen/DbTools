@@ -1,0 +1,92 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>json代码处理</title>
+
+    <!-- CSS -->
+    <link href="style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js/poshytip-1.2/tip-yellowsimple/tip-yellowsimple.css" rel="stylesheet" />
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie6.css" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie7.css" /><![endif]-->
+    <!-- JavaScripts-->
+    <script type="text/javascript" src="js/jquery1.7.2.js"></script>
+    <script type="text/javascript" src="style/js/jNice.js"></script>
+</head>
+
+<body>
+    <div id="wrapper" style="width:auto;">
+        <div id="main" style="padding:0px;width:400px; float:none;">
+            <form action="" class="jNice" id="myform">
+                <fieldset style="border:none; margin-bottom:0;">
+                    <p><label>class代码:</label><textarea title="支持类和纯属性" name="cls" id="cls" rows="1" cols="1"></textarea></p>
+                    <input type="button" id="btnjson" value="生成json" class="cctag" /><br /><hr />
+                    <p><label>json代码:</label><textarea title="支持标准json格式" name="jsn" id="jsn" rows="1" cols="1"></textarea></p>
+                    <input type="button" id="btncls" value="生成class" /><a class="amore">more</a>
+                </fieldset>
+            </form>
+        </div>
+        <!-- // #main -->
+    </div>
+    <!-- // #wrapper -->
+
+    <script src="js/poshytip-1.2/jquery.poshytip.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('textarea').poshytip({
+                className: 'tip-yellowsimple',
+                showOn: 'focus',
+                alignTo: 'target',
+                alignX: 'right',
+                alignY: 'center',
+                offsetX: 5,
+                showTimeout: 100
+            });
+
+            var index = parent.layer.getFrameIndex(window.name);
+
+            function checkitem(idname) {
+                var checkitem = $('#' + idname);
+                if ($.trim(checkitem.val()) == '') {
+                    parent.layer.msg('样本代码不能为空', { time: 1500 });
+                    checkitem.focus();
+                    return false;
+                }
+                return true;
+            };
+
+            function makecode(param) {
+                var loading = parent.layer.load(0, { shade: [0.2, '#fff'] });
+
+                var paramdata = {
+                    action: param.act,
+                    arg: { pm: $('#' + param.id).val() }
+                };
+                parent.doAjaxPost(paramdata, function (result) {
+                    parent.layer.close(loading);
+                    if (result.success) {
+                        parent.OpeniframeLayer('生成代码', 'Json2Class.aspx', ['900px', '600px'], true, true, false);
+                        parent.layer.close(index);
+                    } else {
+                        parent.SuperSite.MsgFailed(result.msg);
+                    }
+                });
+            };
+
+            $('#btnjson, #btncls').click(function () {
+                var _idname = $(this).hasClass('cctag') ? 'cls' : 'jsn';
+                if (!checkitem(_idname)) return;
+                makecode({ act: $(this).hasClass('cctag') ? 'makejson' : 'makeclass', id: _idname });
+            });
+
+            $('.amore').click(function () {
+                parent.OpeniframeLayer('工具中心', 'moretools.aspx', ['900px', '600px'], true, true, false);
+                parent.layer.close(index);
+            });
+            
+            //...
+
+        });
+    </script>
+</body>
+</html>

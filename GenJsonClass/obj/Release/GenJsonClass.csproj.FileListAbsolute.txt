@@ -1,0 +1,7 @@
+F:\study\Tools\GenJsonClass\bin\Release\GenJsonClass.dll
+F:\study\Tools\GenJsonClass\bin\Release\GenJsonClass.pdb
+F:\study\Tools\GenJsonClass\bin\Release\Newtonsoft.Json.dll
+F:\study\Tools\GenJsonClass\bin\Release\Newtonsoft.Json.xml
+F:\study\Tools\GenJsonClass\obj\Release\GenJsonClass.csprojResolveAssemblyReference.cache
+F:\study\Tools\GenJsonClass\obj\Release\GenJsonClass.dll
+F:\study\Tools\GenJsonClass\obj\Release\GenJsonClass.pdb

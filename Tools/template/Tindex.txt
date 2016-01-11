@@ -15,7 +15,7 @@
 </script>
 <script id="template" type="x-tmpl-mustache">
     {{#data}}
-    <tr class="odd">
+    <tr>
         <td style="padding:0 10px;">{{name}}</td>
         <td style="padding:0 10px;">{{index}}</td>
         <td style="padding:0 10px;">{{key}}</td>
