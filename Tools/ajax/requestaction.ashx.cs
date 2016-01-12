@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Tools.ajax
 {
-    using Tools.App_Code;
+    using Help;
 
     public partial class requestaction : IHttpHandler
     {

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Tools
 {
-    using Tools.App_Code;
+    using Help;
 
     public partial class index : System.Web.UI.Page
     {

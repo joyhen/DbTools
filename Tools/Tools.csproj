@@ -225,6 +225,7 @@
     <Content Include="style\login\style.css" />
     <Content Include="test.aspx" />
     <Content Include="tinytable.html" />
+    <Content Include="tools\sql_datetime.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -236,20 +237,6 @@
     <Compile Include="BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="App_Code\BufHelp.cs" />
-    <Compile Include="App_Code\CacheUtil.cs" />
-    <Compile Include="App_Code\Class2Map.cs" />
-    <Compile Include="App_Code\DBHelp.cs" />
-    <Compile Include="App_Code\DtoCenter.cs" />
-    <Compile Include="App_Code\Extend.cs" />
-    <Compile Include="App_Code\interface\IAjaxArg.cs" />
-    <Compile Include="App_Code\interface\IAjaxParama.cs" />
-    <Compile Include="App_Code\JsonUtils.cs" />
-    <Compile Include="App_Code\KeyCenter.cs" />
-    <Compile Include="App_Code\LogHelp.cs" />
-    <Compile Include="App_Code\Mapper.cs" />
-    <Compile Include="App_Code\ReflectionMapr.cs" />
-    <Compile Include="App_Code\sql.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="code.aspx.cs">
       <DependentUpon>code.aspx</DependentUpon>
@@ -318,6 +305,10 @@
     <ProjectReference Include="..\GenJsonClass\GenJsonClass.csproj">
       <Project>{d9a7f1e3-707b-4988-9429-9f988298fba4}</Project>
       <Name>GenJsonClass</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Help\Help.csproj">
+      <Project>{5b7af9f4-77f8-4779-84e5-10a8d1b358f7}</Project>
+      <Name>Help</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -6,8 +6,8 @@ using System.Collections.Generic;
 
 namespace Tools.ajax
 {
+    using Help;
     using GenJsonClass;
-    using Tools.App_Code;
     using Newtonsoft.Json.Linq;
 
     public partial class requestaction

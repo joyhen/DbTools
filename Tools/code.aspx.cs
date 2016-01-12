@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Tools
 {
-    using Tools.App_Code;
+    using Help;
 
     public partial class code : BasePage
     {

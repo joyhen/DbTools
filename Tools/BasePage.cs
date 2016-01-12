@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Tools
 {
-    using Tools.App_Code;
+    using Help;
 
     public class BasePage : System.Web.UI.Page
     {

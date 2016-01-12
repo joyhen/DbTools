@@ -1,7 +1,0 @@
-﻿
-web-storage-cache
-https://github.com/WQTeam/web-storage-cache/blob/master/README_zh_CN.md
-
-async.js
-https://github.com/caolan/async
-

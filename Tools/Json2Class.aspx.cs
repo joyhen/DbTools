@@ -2,7 +2,7 @@
 
 namespace Tools
 {
-    using Tools.App_Code;
+    using Help;
 
     public partial class Json2Class : System.Web.UI.Page
     {
