@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>编辑字段</title>
+    <title>编辑表的业务说明</title>
 
     <!-- CSS -->
     <link href="style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
@@ -19,11 +19,11 @@
         <div id="main" style="padding:0px;width:400px; float:none;">
             <form action="" class="jNice" id="myform">
                 <fieldset style="border:none; margin-bottom:0;">
-                    <p><label>名称:<input type="text" name="name" class="fieldname" style="border:none;" readonly="readonly" /></label></p>
-                    <p><label>业务场景:</label><textarea name="biz" id="biz" rows="1" cols="1"></textarea></p>
-                    <input type="hidden" name="table" id="table" />
-                    <input type="hidden" name="desc" id="desc" />
-                    <input type="button" value="Update" />
+                    <p><label>表名:<input type="text" name="name" class="fieldname" style="border:none;" readonly="readonly" /></label></p>
+                    <p><label>说明:<input type="text" id="desc" name="desc" class="text-long"
+                            title="不能为空" style="float:right; margin-right:35px;" /></label></p>
+                    <p></p>
+                    <input type="button" value="Update" style="margin-left:48px;" />
                 </fieldset>
             </form>
         </div>
@@ -31,33 +31,39 @@
     </div>
     <!-- // #wrapper -->
 
-    <script src="js/jquery.serializeJSON.js"></script>
+    <script src="js/poshytip-1.2/jquery.poshytip.min.js"></script>
     <script type="text/javascript">
         $(function () {
+            var index = parent.layer.getFrameIndex(window.name);
             var myurl = parent.parseUri(location.href);
             var _table = myurl.queryKey.tb;
-            var _field = myurl.queryKey.fd;
 
-            var index = parent.layer.getFrameIndex(window.name);
+            $('.fieldname').val(_table);
 
-            $('.fieldname').val(_field);
-            $("#table").val(_table); //表名存入隐藏对象
+            $('#desc').poshytip({
+                className: 'tip-yellowsimple',
+                showOn: 'focus',
+                alignTo: 'target',
+                alignX: 'right',
+                alignY: 'center',
+                offsetX: 5,
+                showTimeout: 100
+            });
 
             $('input[type="button"]').click(function () {
-                var checkitem = $('#biz');
+                var checkitem = $('#desc');
                 if ($.trim(checkitem.val()) == '') {
-                    parent.layer.msg('不能为空', { time: 1500 });
                     checkitem.focus();
                     return;
                 }
 
                 var paramdata = {
-                    action: 'scence',
-                    arg: $('#myform').serializeJSON()
+                    action: 'tablemark',
+                    arg: { tb: _table, mk: checkitem.val() }
                 };
                 parent.doAjaxPost(paramdata, function (result) {
                     if (result.success) {
-                        parent.SuperSite.MsgSuccess('修改成功');
+                        parent.SuperSite.MsgOK('描述成功');
                         parent.layer.close(index);
                     } else {
                         parent.SuperSite.MsgFailed(result.msg);

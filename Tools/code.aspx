@@ -16,7 +16,14 @@
         </pre>
     </form>
 
+    <script src="js/jquery1.7.2.js"></script>
     <script src="js/highlight/highlight.pack.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+        hljs.initHighlightingOnLoad();
+
+        $(function () {
+            parent.SuperSite.MsgOK('代码已成功生成');
+        });
+    </script>
 </body>
 </html>

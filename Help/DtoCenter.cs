@@ -203,6 +203,11 @@ namespace Help
         public string tablename { get; set; }
         [ProtoMember(2)]
         public List<FieldInfo> fieldinfo { get; set; }
+        /// <summary>
+        /// 表业务说明
+        /// </summary>
+        [ProtoMember(3)]
+        public string tablemark { get; set; }
     }
     /// <summary>
     /// 字段信息

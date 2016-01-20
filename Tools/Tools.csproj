@@ -79,6 +79,7 @@
     <Content Include="favicon.ico" />
     <Content Include="bak.html" />
     <Content Include="formdesign.aspx" />
+    <Content Include="formtxt.html" />
     <Content Include="json.html" />
     <Content Include="Json2Class.aspx" />
     <Content Include="js\highlight\demo.txt" />
@@ -198,6 +199,7 @@
     <Content Include="moretools.aspx" />
     <Content Include="scene.html" />
     <Content Include="style\css\selecttb.css" />
+    <Content Include="tablemark.html" />
     <Content Include="template\Tindex.txt" />
     <Content Include="style\css\hack.css" />
     <Content Include="style\css\ie6.css" />
@@ -287,13 +289,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="images\Thumbs.db" />
     <Content Include="ajax\requestaction.ashx" />
     <Content Include="js\highlight\CHANGES.md" />
     <Content Include="js\highlight\LICENSE" />
     <Content Include="js\highlight\README.md" />
     <Content Include="js\highlight\README.ru.md" />
-    <None Include="Properties\PublishProfiles\Web.config.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

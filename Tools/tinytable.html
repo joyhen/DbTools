@@ -12,12 +12,17 @@
     <!-- JavaScripts-->
     <script type="text/javascript" src="js/jquery1.7.2.js"></script>
     <script type="text/javascript" src="style/js/jNice.js"></script>    
+    <style type="text/css">
+        .tabledesc{ font-size:14px; padding-left:20px; color:#ff6a00; line-height:40px;}
+        .tbmark{ color:#5494af;}
+    </style>
 </head>
 
 <body>
     <div id="wrapper" style="width:100%;">
         <div id="main" style="width:100%; padding-right:0;">
             <form action="" class="jNice">
+                <p class="tabledesc">表业务说明：<span class="tbmark"></span></p>
                 <table cellpadding="0" cellspacing="0" style="width:100%;" class="table">
                     <tbody></tbody>
                 </table>
@@ -26,8 +31,6 @@
         <!-- // #main -->
     </div>
     <!-- // #wrapper -->
-
-    <!-- // #template -->
     <script id="template" type="x-tmpl-mustache">
         {{#data}}
         <tr>
@@ -38,6 +41,7 @@
         </tr>
         {{/data}}
     </script>
+    <!-- // #template -->
 
     <script type="text/javascript">
         $(function () {
@@ -50,6 +54,10 @@
                 $('#template').html(),
                 function () { $('tr:even').addClass('odd') }
             );
+
+            parent.getJsonData({ action: "gettablemark", arg: { tbname: _table } }, function (result) {
+                $('.tabledesc span').text(result.data || 'null');
+            });
         });
     </script>
 </body>

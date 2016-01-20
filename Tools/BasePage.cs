@@ -50,7 +50,7 @@ namespace Tools
         /// <summary>
         /// 校验数据集
         /// </summary>
-        private bool CheckDS(DataSet ds)
+        protected bool CheckDS(DataSet ds)
         {
             return ds != null && ds.Tables.Count > 0;
         }

@@ -48,6 +48,8 @@
                 <div id="main">
                 	<form action="" class="jNice">
 					    <h3 style="font-weight:normal;">表信息
+                            <span><a title="表的业务说明" class="toolbar" ccvalue="tablemarktip" href="javascript:;">T</a></span>
+                            <span class="tiny">|</span>
                             <span><a title="精简模式" class="toolbar" ccvalue="tinyshowtip" href="javascript:;">@</a></span>
                             <span class="tiny">|</span>
                             <span><a title="全选/反选所有字段" class="toolbar" ccvalue="alltip" href="javascript:;">#</a></span>
@@ -149,6 +151,9 @@
                 if ($.trim(tb) == '') return;
 
                 switch (_tag) {
+                    case 'tablemarktip':
+                        OpeniframeLayer(tb, 'tablemark.html?tb=' + tb, ['430px', '200px'], true);
+                        break;
                     case 'tinyshowtip':
                         OpeniframeLayer(tb, 'tinytable.html?tb=' + tb, ['1100px', '580px'], true, true, false);
                         break;
@@ -160,7 +165,7 @@
                         break;
                     case 'codetip':
                         if (checkselected()) {
-                            OpeniframeLayer('生成代码', 'code.aspx?tb=' + tb + '&fd=' + CurrentSelectTD, ['900px', '500px'], true, true, false);
+                            OpeniframeLayer('生成代码', 'code.aspx?tb=' + tb + '&fd=' + CurrentSelectTD, ['1200px', '600px'], true, true, false);
                         };
                         break;
                     case 'libtip':
@@ -285,7 +290,7 @@
                         OpeniframeLayer('json代码处理', 'json.html', ['530px', '530px'], true);
                     }
                     if ($(this).hasClass('formdesign')) {
-                        OpeniframeLayer('表单设计器', 'formdesign.aspx', ['1000px', '600px'], true, true, false);
+                        OpeniframeLayer('表单设计器', 'formdesign.aspx', ['950px', '600px']);
                     }                    
                 }
             });

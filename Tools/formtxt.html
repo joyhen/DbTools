@@ -1,0 +1,93 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>编辑控件</title>
+
+    <!-- CSS -->
+    <link href="style/css/transdmin.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="js/poshytip-1.2/tip-yellowsimple/tip-yellowsimple.css" rel="stylesheet" />
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie6.css" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" media="screen" href="style/css/ie7.css" /><![endif]-->
+    <!-- JavaScripts-->
+    <script type="text/javascript" src="js/jquery1.7.2.js"></script>
+    <script type="text/javascript" src="style/js/jNice.js"></script>
+    <style>
+        .btndelete{
+            margin-left:20px; 
+            border-radius: 10px;
+            border: 1px solid #ADADAD;
+            background-color: #fff;
+            padding: 3px 10px;
+            color:#ff0000;
+            cursor:pointer;
+        }
+
+        .btnreset{
+            border-radius: 10px;
+            border: 1px solid #ADADAD;
+            background-color: #fff;
+            padding: 3px 10px;
+            color:green;
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper" style="width:auto;">
+        <div id="main" style="padding:0px;width:400px; float:none;">
+            <form class="jNice" id="myform">
+                <fieldset style="border:none; margin:0; background-color:#fff;">
+                    <p><label>标签名:</label><input type="text" id="labeltext" class="text-long" title="不能为空" /></p>
+                    <p><label>文本id和name:</label>
+                        <input type="text" class="text-medium" id="inputid" title="不能为空" />
+                        <input type="text" class="text-small ctlname" id="inputname" title="默认与id一致" />
+                    </p>
+                    <p>
+                        <input type="button" value="Reset" class="btnreset" />
+                        <input type="button" value="Delete" class="btndelete" />
+                    </p>
+                </fieldset>
+            </form>
+        </div>
+        <!-- // #main -->
+    </div>
+    <!-- // #wrapper -->
+
+    <script src="js/poshytip-1.2/jquery.poshytip.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var myurl = parent.parent.parseUri(location.href);
+            var __tag = myurl.queryKey.tag;
+            var index = parent.layer.getFrameIndex(window.name);
+
+            $('input[type="text"]').poshytip({
+                className: 'tip-yellowsimple',
+                showOn: 'focus',
+                alignTo: 'target',
+                alignX: 'right',
+                alignY: 'center',
+                offsetX: 5,
+                showTimeout: 100
+            });
+
+            $('input[type="button"]').click(function () {
+                if ($(this).hasClass('btndelete')) {
+                    parent.removeControl(__tag);                    
+                } else {
+                    var lbl = $.trim($('#labeltext').val());
+                    var id = $.trim($('#inputid').val());
+                    var name = $.trim($('inputname').val()) || id;
+
+                    parent.resetControl(__tag, { __lbl: lbl, __id: id, __name: name });
+                };
+                parent.layer.close(index);
+            });
+
+            //...
+
+        });
+    </script>
+</body>
+</html>

@@ -5,6 +5,15 @@ F:\study\Tools\Help\bin\Debug\protobuf-net.dll
 F:\study\Tools\Help\bin\Debug\Newtonsoft.Json.xml
 F:\study\Tools\Help\bin\Debug\protobuf-net.pdb
 F:\study\Tools\Help\bin\Debug\protobuf-net.xml
-F:\study\Tools\Help\obj\Debug\Help.csprojResolveAssemblyReference.cache
 F:\study\Tools\Help\obj\Debug\Help.dll
 F:\study\Tools\Help\obj\Debug\Help.pdb
+F:\business\Tools\Help\bin\Debug\Help.dll
+F:\business\Tools\Help\bin\Debug\Help.pdb
+F:\business\Tools\Help\bin\Debug\Newtonsoft.Json.dll
+F:\business\Tools\Help\bin\Debug\protobuf-net.dll
+F:\business\Tools\Help\bin\Debug\Newtonsoft.Json.xml
+F:\business\Tools\Help\bin\Debug\protobuf-net.pdb
+F:\business\Tools\Help\bin\Debug\protobuf-net.xml
+F:\business\Tools\Help\obj\Debug\Help.csprojResolveAssemblyReference.cache
+F:\business\Tools\Help\obj\Debug\Help.dll
+F:\business\Tools\Help\obj\Debug\Help.pdb

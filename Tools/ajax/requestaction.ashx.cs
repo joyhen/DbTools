@@ -70,6 +70,8 @@ namespace Tools.ajax
 
             switch (ClientAction)
             {
+                #region 方法
+
                 case "updateconstr":
                     UpdateConstr();
                     break;
@@ -78,6 +80,9 @@ namespace Tools.ajax
                     break;
                 case "gettableinfo":
                     GetTableInfo();
+                    break;
+                case "gettablemark":
+                    GetTableMark();
                     break;
                 case "deletefield":
                     DeleteField();
@@ -91,6 +96,10 @@ namespace Tools.ajax
                 case "scence":
                     Sence();
                     break;
+                case "tablemark":
+                    TableMark();
+                    break;
+
                 case "gencodelib":
                     GenCodeLibrary();
                     break;
@@ -106,7 +115,9 @@ namespace Tools.ajax
                     break;
                 case "makeclass":
                     MakeClass();
-                    break;  
+                    break;
+
+                #endregion
 
                 default:
                     Outmsg("请求无效");
@@ -186,17 +197,39 @@ namespace Tools.ajax
                             ?? new List<TableInfoTiny>();
 
             var currentbiz = tbBizInfo.FirstOrDefault(x => x.tablename == tbname);              //当前表的业务说明信息
-            if (currentbiz != null && currentbiz.fieldinfo.Count > 0)
+            if (currentbiz != null && currentbiz.fieldinfo != null)
             {
                 query.ForEach(x =>
                 {
                     var _temp = currentbiz.fieldinfo.FirstOrDefault(f => f.name == x.name);
-                    x.biz = _temp != null ? _temp.biz : "";
+                    x.biz = _temp != null ? _temp.biz : ""; //设置字段的业务场景描述
                 });
                 Outmsg(true, outdata: query);
             }
             else
                 Outmsg(true, outdata: query);
+        }
+        /// <summary>
+        /// 获取表的业务描述
+        /// </summary>
+        private void GetTableMark()
+        {
+            string tbname = ((dynamic)ActionParama.Arg).tbname;
+            if (!IsNotEmptyString(tbname))
+            {
+                Outmsg("参数无效");
+                return;
+            }
+
+            //业务场景的表信息标记
+            var tbBizInfo = BufHelp.ProtoBufDeserialize<List<TableInfoTiny>>(KeyCenter.TableBusinessFile)
+                            ?? new List<TableInfoTiny>();
+
+            var currentbiz = tbBizInfo.FirstOrDefault(x => x.tablename == tbname);  //当前表的业务说明信息
+            if (currentbiz != null)
+                Outmsg(true, outdata: currentbiz.tablemark);
+            else
+                Outmsg(true, outdata: "");
         }
 
         /// <summary>
@@ -233,6 +266,39 @@ namespace Tools.ajax
             }
             //...
             Outmsg("添加功能暂时未对外开放");
+        }
+        /// <summary>
+        /// 表的业务说明备注
+        /// </summary>
+        private void TableMark()
+        {
+            string table = ((dynamic)ActionParama.Arg).tb;
+            string mark = ((dynamic)ActionParama.Arg).mk;
+            if (!IsNotEmptyString(table) || !IsNotEmptyString(mark))
+            {
+                Outmsg("参数无效");
+                return;
+            }
+
+            var tbBizInfo = BufHelp.ProtoBufDeserialize<List<TableInfoTiny>>(KeyCenter.TableBusinessFile)
+                            ?? new List<TableInfoTiny>();
+            var currentbiz = tbBizInfo.FirstOrDefault(x => x.tablename == table);       //当前表的业务说明信息
+            if (currentbiz == null)
+            {
+                tbBizInfo.RemoveAll(x => x.tablename == table);
+                tbBizInfo.Add(new TableInfoTiny
+                {
+                    tablename = table,
+                    tablemark = mark
+                });
+            }
+            else
+            {
+                currentbiz.tablemark = mark;                                            //修改业务描述内容
+            }
+
+            var result = BufHelp.ProtoBufSerialize<List<TableInfoTiny>>(tbBizInfo, KeyCenter.TableBusinessFile);
+            Outmsg(result, outmsg: string.Format("修改表{0}的业务说明出错", table));
         }
         /// <summary>
         /// 修改字段备注和业务场景信息

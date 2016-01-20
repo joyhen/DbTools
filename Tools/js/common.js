@@ -232,8 +232,9 @@ var SuperSite = {
     MsgWarning: function (msg) {
         layer.msg(msg || 'Warning', { icon: 0, time: 1500 });
     },
-    MsgOK: function (msg) {
-        layer.msg(msg || 'OK', { icon: 1, time: 1500 });
+    MsgOK: function (msg, time) {
+        var t = time || 1500;
+        layer.msg(msg || 'OK', { icon: 1, time: t });
     },
     MsgError: function (msg) {
         layer.msg(msg || 'Error', { icon: 2, time: 1500 });
