@@ -40,7 +40,7 @@
                     </ul>
                 </div>
                 <!-- // #sidebar -->
-                <h2 class="bj"><a href="javascript:void(0);">布局设置</a> &raquo; 
+                <h2 class="bj"><a href="javascript:void(0);" class="ignore">布局设置</a> &raquo; 
                     <a href="javascript:void(0);" id="currenttb" class="active">1:null</a>
                     <a href="javascript:void(0);">2:2</a>
                     <a href="javascript:void(0);">1:3</a>
@@ -175,7 +175,9 @@
 
             //选择布局
             $('.bj a').click(function () {
-                $(this).addClass('active').siblings().removeClass('active');
+                if (!$(this).hasClass('ignore')) {
+                    $(this).addClass('active').siblings().removeClass('active');
+                }
             });
 
             //菜单事件
