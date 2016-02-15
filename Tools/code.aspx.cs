@@ -23,11 +23,12 @@ namespace Tools
 
                 var arr = field.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 
-                coderesult = getmodelcode(table, arr);
+                coderesult = formdesign(table, arr);
+                coderesult += getmodelcode(table, arr);
                 coderesult += string.Format(getdatatemplate,
                                             table,
                                             field,
-                                            "获取模型" + modeltype + "_" + table + "数据",
+                                            "获取模型" + modeltype + table + "数据",
                                             modeltype);
 
                 coderesult += getinsertcode(arr, table);    //新增操作代码
@@ -87,7 +88,7 @@ namespace Tools
             return result;
         }
 
-        private const string modeltype = "DTO";
+        private const string modeltype = "D"; //"DTO_";
         /// <summary>
         /// 模型是否支持Protobuf
         /// </summary>
@@ -195,13 +196,13 @@ namespace Tools
 /// <summary>
 /// {2}
 /// </summary>
-public List<{3}_{0}> Get{3}_{0}Data()
+public List<{3}{0}> Get{3}{0}Data()
 {{
-    var sql = ""SELECT {1} FROM {0}"";
+    var sql = @""SELECT {1} FROM {0}"";
     var ds = DBHelp.ExecuteDataSet(sql);
     if (CheckDS(ds))
     {{
-        var result = ds.Tables[0].MapTo<{3}_{0}>();
+        var result = ds.Tables[0].MapTo<{3}{0}>();
         return result.ToList();
     }}
     return null;
@@ -213,8 +214,10 @@ public List<{3}_{0}> Get{3}_{0}Data()
         {
             if (@type == "nchar" || @type == "variant" || @type == "text" || @type == "ntext" || @type == "nvarchar")
                 return "string";
-            if (@type == "bit" || @type == "bigint" || @type == "tinyint" || @type == "smallint")
+            if (@type == "bigint")
                 return isnull ? "int?" : "int";
+            if (@type == "tinyint" || @type == "smallint") //数据库对应tinyint,smallint，映射时不可为Nullable
+                return "int";
             if (@type == "bit")
                 return isnull ? "bool?" : "bool";
             if (@type == "datetime" || @type == "smalldatetime")
@@ -262,7 +265,7 @@ using System.Collections.Generic;
 /// <summary>
 /// 表{0}的领域模型
 /// </summary>{4}
-public class {2}_{0}
+public class {2}{0}
 {{  {1}
 }}";
             }
@@ -310,7 +313,7 @@ public class {2}_{0}
 /// <summary>
 /// {5}
 /// </summary>
-private bool {4}_{0}({6}_{0} paramArg)
+public bool {4}_{0}({6}{0} paramArg)
 {{
     {1}
 
@@ -334,7 +337,7 @@ private bool {4}_{0}({6}_{0} paramArg)
 /// <summary>
 /// 删除表{0}记录
 /// </summary>
-private bool Delete_{0}(int id)
+public bool Delete_{0}(int id)
 {{
     string sql = ""DELETE {0} WHERE Id=@Id"";
 
@@ -349,6 +352,49 @@ private bool Delete_{0}(int id)
     return result > 0;
 }}";
             }
+        }
+
+        /// <summary>
+        /// 表单代码
+        /// </summary>
+        private string formdesign(string table, string[] fields)
+        {
+            string template = @"
+            <div class=""v52fmbx_dlbox"">
+                <dl>
+                    <dt>{0}：</dt>
+                    <dd>
+                        <input name=""{1}"" validate type=""text"" value="""" class=""text nonull ccverify"" />
+                        <span class=""tips"">{2}</span>
+                    </dd>
+                </dl>
+            </div>";
+
+            var cachedata = GetTableDetail(table);
+            //表字段的业务场景描述内容
+            var tbbizinfo = BufHelp.ProtoBufDeserialize<List<TableInfoTiny>>(KeyCenter.TableBusinessFile)
+                            ?? new List<TableInfoTiny>();
+            var currentbiz = tbbizinfo.FirstOrDefault(x => x.tablename == table);               //当前表的业务说明信息
+            var biztag = currentbiz != null && currentbiz.fieldinfo.Count > 0;                  //字段是否有业务场景描述
+
+            var strb = new System.Text.StringBuilder();
+
+            cachedata.ForEach(x =>
+            {
+                if (!fields.Contains(x.name)) return;
+
+                string tips = string.Empty;
+                if (biztag)
+                {
+                    var _temp = currentbiz.fieldinfo.FirstOrDefault(f => f.name == x.name);
+                    tips = _temp != null ? _temp.biz : "";
+                }
+
+                strb.AppendFormat(template, x.description, x.name.ToLower(), tips);
+                strb.Append(System.Environment.NewLine);
+            });
+
+            return strb.ToString();
         }
 
         internal class keyvalue

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+        body{ padding:10px; font-size:14px; font-family:Arial; line-height:23px;}
+    </style>
+</head>
+<body>
+    来源：http://www.cnblogs.com/pato/archive/2011/08/15/2139705.html <br /><br />
+    Enum为枚举提供基类，其基础类型可以是除 Char 外的任何整型。如果没有显式声明基础类型，则使用 Int32。编程语言通常提供语法来声明由一组已命名的常数和它们的值组成的枚举。
+    <br />
+    注意：枚举类型的基类型是除 Char 外的任何整型，所以枚举类型的值是整型值。
+    <br />
+    Enum 提供一些实用的静态方法：
+    <br />
+    (1)比较枚举类的实例的方法
+    <br />
+    (2)将实例的值转换为其字符串表示形式的方法
+    <br />
+    (3)将数字的字符串表示形式转换为此类的实例的方法
+    <br />
+    (4)创建指定枚举和值的实例的方法。
+    <br /><br />
+    举例：enum Colors { Red, Green, Blue, Yellow };
+    <br />
+    Enum-->String
+    <br />
+    (1)利用Object.ToString()方法：如Colors.Green.ToString()的值是"Green"字符串；
+    <br />
+    (2)利用Enum的静态方法GetName与GetNames：
+    <br />
+    public static string GetName(Type enumType,Object value)
+    <br />
+    public static string[] GetNames(Type enumType)
+    <br />
+    例如：Enum.GetName(typeof(Colors),3))与Enum.GetName(typeof(Colors), Colors.Blue))的值都是"Blue"
+    <br />
+    Enum.GetNames(typeof(Colors))将返回枚举字符串数组。
+    <br />
+    String-->Enum
+    <br />
+    (1)利用Enum的静态方法Parse：
+    <br />
+    public static Object Parse(Type enumType,string value)
+    <br />
+    例如：(Colors)Enum.Parse(typeof(Colors), "Red")
+    <br />
+    Enum-->Int
+    <br />
+    (1)因为枚举的基类型是除 Char 外的整型，所以可以进行强制转换。
+    <br />
+    例如：(int)Colors.Red, (byte)Colors.Green
+    <br />
+    Int-->Enum
+    <br />
+    (1)可以强制转换将整型转换成枚举类型。
+    <br />
+    例如：Colors color = (Colors)2 ，那么color即为Colors.Blue
+    <br />
+    (2)利用Enum的静态方法ToObject。
+    <br />
+    public static Object ToObject(Type enumType,int value)
+    <br />
+    例如：Colors color = (Colors)Enum.ToObject(typeof(Colors), 2)，那么color即为Colors.Blue
+    <br />
+    判断某个整型是否定义在枚举中的方法：Enum.IsDefined
+    <br />
+    public static bool IsDefined(Type enumType,Object value)
+    <br />
+    例如：Enum.IsDefined(typeof(Colors), n))
+</body>
+</html>

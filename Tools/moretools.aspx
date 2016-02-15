@@ -17,6 +17,7 @@
             <ul>
                 <li><a href="json.html" target="_blank">json</a></li>
                 <li><a href="tools/sql_datetime.html" target="_blank">sql datetime</a></li>
+                <li><a href="tools/sql_datetime.html" target="_blank">枚举Enum</a></li>
             </ul>
         </div>
     </div>
